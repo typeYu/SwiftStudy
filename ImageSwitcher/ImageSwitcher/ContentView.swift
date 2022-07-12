@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var pageNumber = 1
     var body: some View {
         VStack {
             HStack {
                 Button {
-                    //
+                    if pageNumber > 1 {
+                        pageNumber -= 1
+                    }
                 } label: {
                     Image(systemName: "arrowtriangle.left")
                         .font(.largeTitle)
                 }
                 Spacer()
-                Text("1 / 5")
+                Text("\(pageNumber) / 5")
                 Spacer()
                 Button {
-                    //
+                    if pageNumber < 5 {
+                        pageNumber += 1
+                    }
                 } label: {
                     Image(systemName: "arrowtriangle.right")
                         .font(.largeTitle)
