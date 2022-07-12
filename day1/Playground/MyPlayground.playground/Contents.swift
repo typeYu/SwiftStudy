@@ -16,7 +16,7 @@ fff = hello
 
 let m2 = fff("Kim", "Sunday")
 
-ff
+fff
 
 let msg1 = greet(name: "TUKorea", day: "Monday")
 //let msg1 = greet("TUKorea", "Monday")
