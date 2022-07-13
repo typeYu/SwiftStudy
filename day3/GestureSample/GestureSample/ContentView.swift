@@ -20,7 +20,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var count = 0
-    @State var angle = Angle.zero
+    @GestureState var angle: Angle = Angle.zero
     var body: some View {
         let tap = TapGesture()
             .onEnded {
@@ -31,13 +31,16 @@ struct ContentView: View {
 //                count += 10
 //            }
         let rot = RotationGesture()
-            .onChanged { angle in
-                print("Angle: \(angle)")
-                self.angle = angle
+            .updating($angle) { angle, state, transaction in
+                state = angle
             }
-            .onEnded { _ in
-                print("Rotation Ended")
-            }
+//            .onChanged { angle in
+//                print("Angle: \(angle)")
+//                self.angle = angle
+//            }
+//            .onEnded { _ in
+//                print("Rotation Ended")
+//            }
         VStack {
             Text("count = \(count) angle = \(angle.degrees)")
             Text("Tap Me !!")
@@ -63,3 +66,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
