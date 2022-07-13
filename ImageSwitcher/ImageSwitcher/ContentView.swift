@@ -22,12 +22,14 @@ struct TopButton: View {
     var dir: Dir
     var action: ()->Void
     var body: some View {
-        Button {
+        var imageName: String = dir == .left ? "prev" : "next"
+        if !enabled {
+            imageName += "_d"
+        }
+        return Button {
             action()
         } label: {
-            let imageName = dir == .left ?
-                "arrowtriangle.left": "arrowtriangle.right"
-            Image(systemName: imageName)
+            Image(imageName)
                 .resizable()
                 .frame(width: 60, height: 60)
                 .aspectRatio(contentMode: .fit)
