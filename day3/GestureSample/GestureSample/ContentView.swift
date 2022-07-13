@@ -19,6 +19,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var spinning = false
+    @State var visible = true
     @State var count = 0
     @GestureState var angle: Angle = Angle.zero
     var body: some View {
@@ -60,26 +62,41 @@ struct ContentView: View {
                     .border(Color.red, width: 4)
                 .rotationEffect(angle)
             }
+            .rotationEffect(.degrees(spinning ? 360 : 0))
+            .animation(
+                .linear(duration: 1)
+                    .repeatForever(autoreverses: false),
+                value: spinning ? 360 : 0)
+            .onAppear {
+                spinning = true
+            }
+            
+            Toggle(isOn: $visible.animation(.linear)) {
+                Text("Toggle Control")
+            }
+            .frame(width:200)
 
             Button {
-                
+//                spinning = !spinning
             } label: {
-                Text("Capsule")
+                Text("Toggle Spinning")
                     .padding(10)
                     .background(
                         Capsule()
                             .stroke(.brown, lineWidth: 3)
                     )
             }
-            Path { path in
-                path.move(to: CGPoint(x: 200, y: 0))
-                path.addLine(to: CGPoint(x: 100, y: 200))
-                path.addLine(to: CGPoint(x: 300, y: 200))
-//                path.addLine(to: CGPoint(x: 200, y: 0))
-//                path.closeSubpath()
+            Spacer()
+            if visible {
+                Path { path in
+                    path.move(to: CGPoint(x: 200, y: 0))
+                    path.addLine(to: CGPoint(x: 100, y: 200))
+                    path.addLine(to: CGPoint(x: 300, y: 200))
+    //                path.addLine(to: CGPoint(x: 200, y: 0))
+    //                path.closeSubpath()
+                }
+                .stroke(.blue, style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
             }
-            .stroke(.blue, style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
-
             HStack {
                 Image(systemName: "pencil.and.outline")
                     .resizable()
