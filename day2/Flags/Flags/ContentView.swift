@@ -15,7 +15,7 @@ struct ContentView: View {
                     Section(header: Text(continent.region)) {
                         ForEach(continent.countries, id: \.name) { c in
                             NavigationLink(destination: {
-                                Text(c.name)
+                                CountryDetailView(country: c)
                             }) {
                                 CountryView(country: c)
                             }
