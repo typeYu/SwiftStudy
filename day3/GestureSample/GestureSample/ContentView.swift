@@ -71,6 +71,15 @@ struct ContentView: View {
                             .stroke(.brown, lineWidth: 3)
                     )
             }
+            Path { path in
+                path.move(to: CGPoint(x: 200, y: 0))
+                path.addLine(to: CGPoint(x: 100, y: 200))
+                path.addLine(to: CGPoint(x: 300, y: 200))
+//                path.addLine(to: CGPoint(x: 200, y: 0))
+//                path.closeSubpath()
+            }
+            .stroke(.blue, style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+
             HStack {
                 Image(systemName: "pencil.and.outline")
                     .resizable()
