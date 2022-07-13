@@ -43,11 +43,30 @@ struct ContentView: View {
 //            }
         VStack {
             Text("count = \(count) angle = \(angle.degrees)")
-            Text("Tap Me !!")
-                .padding(50)
-                .background(Color.yellow)
-                .gesture(tap)
+            ZStack {
+                Circle()
+                    .stroke(.blue, lineWidth: 5)
+                    .background(Circle().fill(.yellow))
+                    .frame(width: 100, height: 100)
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.red, lineWidth: 8)
+                    .frame(width: 200, height: 70)
+                Text("Tap Me !!")
+                    .gesture(tap)
+                    .border(Color.red, width: 4)
                 .rotationEffect(angle)
+            }
+
+            Button {
+                
+            } label: {
+                Text("Capsule")
+                    .padding(10)
+                    .background(
+                        Capsule()
+                            .stroke(.brown, lineWidth: 3)
+                    )
+            }
             HStack {
                 Image(systemName: "pencil.and.outline")
                     .resizable()
