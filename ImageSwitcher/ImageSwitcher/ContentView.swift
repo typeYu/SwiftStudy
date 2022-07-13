@@ -17,13 +17,16 @@ import SwiftUI
 //}
 
 struct TopButton: View {
+    enum Dir { case left, right }
     var enabled: Bool
-    var imageName: String
+    var dir: Dir
     var action: ()->Void
     var body: some View {
         Button {
             action()
         } label: {
+            let imageName = dir == .left ?
+                "arrowtriangle.left": "arrowtriangle.right"
             Image(systemName: imageName)
                 .resizable()
                 .frame(width: 60, height: 60)
@@ -41,14 +44,14 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack {
-                TopButton(enabled: pageNumber > 1 ,imageName: "arrowtriangle.left") {
+                TopButton(enabled: pageNumber > 1, dir: .left) {
                     pageNumber -= 1
                 }
                 Spacer()
                 Text("\(pageNumber) / 5")
                     .font(.largeTitle)
                 Spacer()
-                TopButton(enabled: pageNumber < 5, imageName: "arrowtriangle.right") {
+                TopButton(enabled: pageNumber < 5, dir: .right) {
                     pageNumber += 1
                 }
             }
