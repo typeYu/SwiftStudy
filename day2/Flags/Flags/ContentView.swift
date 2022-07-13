@@ -53,10 +53,12 @@ struct ContentView: View {
             .listStyle(SidebarListStyle())
             .navigationBarTitle("All Countries")
         }
+//        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             let color = UIColor.blue.lighter(by: 70)
-            UINavigationBar.appearance().barTintColor = color
-            UINavigationBar.appearance().backgroundColor = color
+            let appearance = UINavigationBar.appearance()
+            appearance.barTintColor = color
+//            appearance.backgroundColor = color
         }
     }
 }
