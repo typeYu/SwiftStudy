@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct GridStack: View {
+struct GridStack<Content: View>: View {
     let rows: Int
     let columns: Int
+    let content: (_ row: Int, _ column: Int) -> Content
     var body: some View {
         VStack {
             ForEach (0 ..< rows, id: \.self) { row in
                 HStack {
                     ForEach (0 ..< columns, id: \.self) { col in
-                        Text("\(col),\(row)")
+                        self.content(row, col)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }
@@ -26,6 +27,8 @@ struct GridStack: View {
 
 struct GridStack_Previews: PreviewProvider {
     static var previews: some View {
-        GridStack(rows: 4, columns: 3)
+        GridStack(rows: 4, columns: 3) { r, c in
+            Text("\(r),\(c)")
+        }
     }
 }
