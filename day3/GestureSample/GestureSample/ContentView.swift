@@ -46,8 +46,12 @@ struct ContentView: View {
             ZStack {
                 Circle()
                     .stroke(.blue, lineWidth: 5)
-                    .background(Circle().fill(.yellow))
-                    .frame(width: 100, height: 100)
+                    .background(Circle().fill(
+                        RadialGradient(gradient: Gradient(colors: [
+                            Color.red, Color.yellow, Color.green
+                        ]), center: .center, startRadius: 0, endRadius: 80)
+                    ))
+                    .frame(width: 200, height: 200)
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(.red, lineWidth: 8)
                     .frame(width: 200, height: 70)
@@ -74,7 +78,7 @@ struct ContentView: View {
                 Text("Rotate Me")
             }
             .padding(50)
-            .background(Color.orange)
+            .background(LinearGradient(colors: [Color.yellow, Color.blue], startPoint: .topLeading, endPoint: .bottomTrailing))
         }
         .gesture(rot)
     }
