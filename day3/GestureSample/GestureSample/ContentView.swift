@@ -21,17 +21,20 @@ import SwiftUI
 struct ContentView: View {
     @State var count = 0
     var body: some View {
+        let tap = TapGesture()
+            .onEnded {
+                count += 1
+            }
+        let lpress = LongPressGesture()
+            .onEnded { _ in
+                count += 10
+            }
         VStack {
             Text("count = \(count)")
             Text("Tap Me !!")
                 .padding(50)
                 .background(Color.yellow)
-                .gesture(
-                    TapGesture()
-                        .onEnded {
-                            count += 1
-                        }
-                )
+                .gesture(tap)
             HStack {
                 Image(systemName: "pencil.and.outline")
                     .resizable()
@@ -40,12 +43,7 @@ struct ContentView: View {
             }
             .padding(50)
             .background(Color.orange)
-            .gesture(
-                LongPressGesture()
-                    .onEnded { _ in
-                        count += 10
-                    }
-            )
+            .gesture(lpress)
         }
     }
 }
