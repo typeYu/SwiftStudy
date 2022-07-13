@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+struct TopButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(width: 60, height: 60)
+            .aspectRatio(contentMode: .fit)
+            .foregroundColor(Color.orange)
+    }
+}
+
+
 struct ContentView: View {
     @State var pageNumber = 1
     var body: some View {
@@ -18,7 +28,8 @@ struct ContentView: View {
                     }
                 } label: {
                     Image(systemName: "arrowtriangle.left")
-                        .font(.largeTitle)
+                        .resizable()
+                        .modifier(TopButtonModifier())
                 }
                 Spacer()
                 Text("\(pageNumber) / 5")
@@ -29,8 +40,8 @@ struct ContentView: View {
                     }
                 } label: {
                     Image(systemName: "arrowtriangle.right")
-                        .font(.largeTitle)
-                        .aspectRatio(contentMode: .fit)
+                        .resizable()
+                        .modifier(TopButtonModifier())
                 }
             }
             Image("cat_1")
