@@ -51,7 +51,7 @@ struct Nations {
                     (name:"香港", file:"hong_kong"),
                     (name:"Indonesia", file:"indonesia"),
                     (name:"日本", file:"japan"),
-                    (name:"대한민국", file:"south_korea"),
+                    (name:"대한민국🇰🇷", file:"south_korea"),
                     (name:"Malaysia", file:"malaysia"),
                     (name:"New Zealand", file:"new_zealand"),
                     (name:"Philippines", file:"philippines"),
