@@ -9,8 +9,9 @@ import SwiftUI
 
 struct GameView: View {
     var body: some View {
-        Image("f_01_01")
-            .padding()
+        GridStack(rows: 6, columns: 3) { row, column in
+            CardView(state: .open, prefix: "f", num: row+column+1)
+        }
     }
 }
 
