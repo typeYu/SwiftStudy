@@ -20,31 +20,41 @@ import SwiftUI
 
 struct ContentView: View {
     @State var count = 0
+    @State var angle = Angle.zero
     var body: some View {
         let tap = TapGesture()
             .onEnded {
                 count += 1
             }
-        let lpress = LongPressGesture()
+//        let lpress = LongPressGesture()
+//            .onEnded { _ in
+//                count += 10
+//            }
+        let rot = RotationGesture()
+            .onChanged { angle in
+                print("Angle: \(angle)")
+                self.angle = angle
+            }
             .onEnded { _ in
-                count += 10
+                print("Rotation Ended")
             }
         VStack {
-            Text("count = \(count)")
+            Text("count = \(count) angle = \(angle.degrees)")
             Text("Tap Me !!")
                 .padding(50)
                 .background(Color.yellow)
                 .gesture(tap)
+                .rotationEffect(angle)
             HStack {
                 Image(systemName: "pencil.and.outline")
                     .resizable()
                     .frame(width: 50, height: 50)
-                Text("Long Press Me")
+                Text("Rotate Me")
             }
             .padding(50)
             .background(Color.orange)
-            .gesture(lpress)
         }
+        .gesture(rot)
     }
 }
 
