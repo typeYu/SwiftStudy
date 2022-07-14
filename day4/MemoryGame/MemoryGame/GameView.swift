@@ -25,6 +25,7 @@ struct GameView: View {
                         }
                     )
             }
+            .aspectRatio(CGSize(width: GameModel.cols, height: GameModel.rows), contentMode: .fit)
         }
     }
 }
