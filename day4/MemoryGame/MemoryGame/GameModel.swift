@@ -16,8 +16,8 @@ struct Card {
 }
 
 class GameModel: ObservableObject {
-    static let rows = 6
-    static let cols = 3
+    static let rows = 5
+    static let cols = 4
     
     @Published var cards = [Card]()
     @Published var flips = 0
