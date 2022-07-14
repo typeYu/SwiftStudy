@@ -12,6 +12,8 @@ struct GameView: View {
     @ObservedObject var game = GameModel()
     @Environment(\.presentationMode) var present
 
+    @State var showsRestartAlert = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -25,6 +27,9 @@ struct GameView: View {
                     .gesture(
                         TapGesture().onEnded {
                             game.open(row: row, col: column)
+                            if game.over {
+                                showsRestartAlert = true
+                            }
                         }
                     )
             }
@@ -62,6 +67,16 @@ struct GameView: View {
                 .white, .blue.opacity(0.5)
             ], startPoint: .topLeading, endPoint: .bottomTrailing)
         )
+        .alert(isPresented: $showsRestartAlert) {
+            Alert(
+                title: Text("Restart?"),
+                message: Text("Do you want to restart the game?"),
+                primaryButton: .default(Text("Restart")) {
+                    game.start()
+                },
+                secondaryButton: .cancel()
+            )
+        }
         .navigationBarHidden(true)
     }
 }
