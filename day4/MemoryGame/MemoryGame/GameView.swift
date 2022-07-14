@@ -16,12 +16,16 @@ struct GameView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             HStack {
                 Text("Memory Game")
+                    .font(.largeTitle)
                 Spacer()
                 Text("Flips: \(game.flips)")
+                    .font(.headline)
             }
             .padding(.horizontal)
+            Spacer()
             GridStack(rows: GameModel.rows, columns: GameModel.cols) { row, column in
                 CardView(prefix: prefix, card: game.card(row: row, col: column))
                     .gesture(
@@ -34,6 +38,7 @@ struct GameView: View {
                     )
             }
             .aspectRatio(CGSize(width: GameModel.cols, height: GameModel.rows), contentMode: .fit)
+            Spacer()
             HStack {
                 Spacer()
                 Button {
@@ -61,6 +66,7 @@ struct GameView: View {
                 }
                 Spacer()
             }
+            Spacer()
         }
         .background(
             LinearGradient(colors: [
