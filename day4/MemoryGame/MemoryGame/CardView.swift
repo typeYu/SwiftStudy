@@ -25,7 +25,8 @@ struct CardView: View {
                 .onReceive(timer) { _ in
 //                    NSLog("on timer receivw")
                     frameIndex += 1
-                    if frameIndex > 8 {
+                    let img = UIImage(named: imageName)
+                    if img == nil {
                         frameIndex = 1
                     }
                 }
@@ -44,7 +45,7 @@ struct CardView_Previews: PreviewProvider {
         VStack {
             ForEach(1..<5) { num in
                 HStack {
-                    CardView(prefix: "f", card: Card(state: .open, number: num))
+                    CardView(prefix: "z", card: Card(state: .open, number: num))
                     CardView(prefix: "f", card: Card(state: .closed, number: num))
                     CardView(prefix: "f", card: Card(state: .removed, number: num))
                 }
