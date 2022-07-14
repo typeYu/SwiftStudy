@@ -10,9 +10,13 @@ import SwiftUI
 struct GameView: View {
     var game = GameModel()
     var body: some View {
-        GridStack(rows: 6, columns: 3) { row, column -> CardView in
-            let card = game.card(row: row, col: column)
-            return CardView(state: card.state, prefix: "f", num: card.number)
+        GridStack(rows: 6, columns: 3) { row, column in
+            CardView(prefix: "f", card: game.card(row: row, col: column))
+                .gesture(
+                    TapGesture().onEnded {
+                        
+                    }
+                )
         }
     }
 }
