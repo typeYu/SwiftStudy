@@ -11,13 +11,22 @@ struct MenuView: View {
     let prefixes = [ "f", "t" ]
     var body: some View {
         NavigationView {
-            List {
-                ForEach(prefixes, id:\.self) { prefix in
-                    NavigationLink(destination: GameView(prefix: prefix)) {
-                        MenuItemView(prefix: prefix)
+            VStack {
+                ScrollView(.vertical, showsIndicators: false) {
+                    ForEach(prefixes, id:\.self) { prefix in
+                        NavigationLink(destination: GameView(prefix: prefix)) {
+                            MenuItemView(prefix: prefix)
+                        }
                     }
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                LinearGradient(
+                    colors: [.white, .orange.opacity(0.5)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing)
+            )
             .navigationTitle(
                 Text("Memory Game")
             )
