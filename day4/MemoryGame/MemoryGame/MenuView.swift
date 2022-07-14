@@ -58,5 +58,18 @@ struct MenuItemView: View {
             }
             Spacer()
         }
+        .frame(height: 300)
+        .background(
+            ZStack {
+                Color.white
+                    .cornerRadius(25)
+                    .padding(20)
+                Image("\(prefix)_bg")
+                    .resizable()
+                    .padding(50)
+            }
+            .rotation3DEffect(.degrees(30), axis: (x: 0, y: -1, z:0))
+            .opacity(0.3)
+        )
     }
 }
