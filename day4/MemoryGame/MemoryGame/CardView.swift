@@ -14,21 +14,30 @@ struct CardView: View {
     var state: CardState
     var prefix: String
     var num: Int
+    var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @State var frameIndex = 1
     var body: some View {
         if state == .removed {
             Image(systemName: "x.circle")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+//                .aspectRatio(contentMode: .fit)
                 .opacity(0.1)
         } else {
             Image(imageName)
+                .onReceive(timer) { _ in
+//                    NSLog("on timer receivw")
+                    frameIndex += 1
+                    if frameIndex > 8 {
+                        frameIndex = 1
+                    }
+                }
         }
     }
     var imageName: String {
         if state == .closed {
             return prefix + "_back"
         }
-        return prefix + String(format: "_%02d_01", num)
+        return prefix + String(format: "_%02d_%02d", num, frameIndex)
     }
 }
 
