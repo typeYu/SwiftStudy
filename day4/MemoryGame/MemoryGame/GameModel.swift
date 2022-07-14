@@ -15,11 +15,11 @@ struct Card {
     let number: Int
 }
 
-class GameModel {
+class GameModel: ObservableObject {
     static let rows = 6
     static let cols = 3
     
-    var cards = [Card]()
+    @Published var cards = [Card]()
 //    var cards: [Card] = []
     
     func start() {
@@ -37,5 +37,13 @@ class GameModel {
     }
     func card(row: Int, col: Int) -> Card {
         cards[row * GameModel.cols + col]
+    }
+    func toggle(row: Int, col: Int) {
+        let index = row * GameModel.cols + col
+        if cards[index].state == .open {
+            cards[index].state = .closed
+        } else if cards[index].state == .closed {
+            cards[index].state = .open
+        }
     }
 }

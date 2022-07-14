@@ -9,13 +9,13 @@ import SwiftUI
 
 struct GameView: View {
     var prefix: String
-    var game = GameModel()
+    @ObservedObject var game = GameModel()
     var body: some View {
         GridStack(rows: 6, columns: 3) { row, column in
             CardView(prefix: prefix, card: game.card(row: row, col: column))
                 .gesture(
                     TapGesture().onEnded {
-                        
+                        game.toggle(row: row, col: column)
                     }
                 )
         }
