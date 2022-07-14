@@ -44,6 +44,7 @@ struct CardView_Previews: PreviewProvider {
                 HStack {
                     CardView(prefix: "f", card: Card(state: .open, number: num))
                     CardView(prefix: "f", card: Card(state: .closed, number: num))
+                    CardView(prefix: "f", card: Card(state: .removed, number: num))
                 }
             }
         }
