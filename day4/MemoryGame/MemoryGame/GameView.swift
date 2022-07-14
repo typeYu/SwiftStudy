@@ -10,6 +10,8 @@ import SwiftUI
 struct GameView: View {
     var prefix: String
     @ObservedObject var game = GameModel()
+    @Environment(\.presentationMode) var present
+
     var body: some View {
         VStack {
             HStack {
@@ -30,7 +32,7 @@ struct GameView: View {
             HStack {
                 Spacer()
                 Button {
-                    
+                    present.wrappedValue.dismiss()
                 } label: {
                     Text("Back")
                         .padding(.horizontal)
@@ -60,6 +62,7 @@ struct GameView: View {
                 .white, .blue.opacity(0.5)
             ], startPoint: .topLeading, endPoint: .bottomTrailing)
         )
+        .navigationBarHidden(true)
     }
 }
 
