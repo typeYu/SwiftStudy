@@ -49,7 +49,7 @@ struct GameView: View {
                 }
                 Spacer()
                 Button {
-                    
+                    showsRestartAlert = true
                 } label: {
                     Text("Restart")
                         .padding(.horizontal)

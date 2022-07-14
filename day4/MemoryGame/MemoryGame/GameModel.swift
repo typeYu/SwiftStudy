@@ -41,7 +41,7 @@ class GameModel: ObservableObject {
         count = cards.count
         flips = 0
         
-        //cards.shuffle()
+        cards.shuffle()
     }
     
     init() {
