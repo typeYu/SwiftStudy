@@ -32,6 +32,8 @@ class GameModel: ObservableObject {
             cards.append(Card(state: .closed, number: i))
             cards.append(Card(state: .closed, number: i))
         }
+        
+        cards.shuffle()
     }
     
     init() {
