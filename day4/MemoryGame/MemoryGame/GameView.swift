@@ -27,6 +27,33 @@ struct GameView: View {
                     )
             }
             .aspectRatio(CGSize(width: GameModel.cols, height: GameModel.rows), contentMode: .fit)
+            HStack {
+                Spacer()
+                Button {
+                    
+                } label: {
+                    Text("Back")
+                        .padding(.horizontal)
+                        .padding(.vertical, 5)
+                        .background(
+                            Capsule()
+                                .stroke(lineWidth: 2.0)
+                        )
+                }
+                Spacer()
+                Button {
+                    
+                } label: {
+                    Text("Restart")
+                        .padding(.horizontal)
+                        .padding(.vertical, 5)
+                        .background(
+                            Capsule()
+                                .stroke(lineWidth: 2.0)
+                        )
+                }
+                Spacer()
+            }
         }
         .background(
             LinearGradient(colors: [
