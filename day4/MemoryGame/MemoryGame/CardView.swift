@@ -16,7 +16,7 @@ struct CardView: View {
         if card.state == .removed {
             Image(systemName: "x.circle")
                 .resizable()
-//                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fit)
                 .opacity(0.1)
         } else {
             Image(imageName)
