@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
-    enum CardState {
-        case removed, closed, open
-    }
-    var state: CardState
+    var state: Card.State
     var prefix: String
     var num: Int
     var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()

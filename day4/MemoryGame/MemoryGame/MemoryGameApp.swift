@@ -11,7 +11,7 @@ import SwiftUI
 struct MemoryGameApp: App {
     var body: some Scene {
         WindowGroup {
-            CardView(state: .open, prefix: "f", num: 1)
+            GameView()
         }
     }
 }
