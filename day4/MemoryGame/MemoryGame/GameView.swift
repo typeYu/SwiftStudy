@@ -15,7 +15,7 @@ struct GameView: View {
             CardView(prefix: prefix, card: game.card(row: row, col: column))
                 .gesture(
                     TapGesture().onEnded {
-                        game.toggle(row: row, col: column)
+                        game.open(row: row, col: column)
                     }
                 )
         }

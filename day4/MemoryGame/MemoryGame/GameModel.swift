@@ -39,7 +39,7 @@ class GameModel: ObservableObject {
     func card(row: Int, col: Int) -> Card {
         cards[row * GameModel.cols + col]
     }
-    func toggle(row: Int, col: Int) {
+    func open(row: Int, col: Int) {
         let index = row * GameModel.cols + col
         if index == openCardIndex {
             return
