@@ -20,6 +20,8 @@ struct CardView: View {
                 .opacity(0.1)
         } else {
             Image(imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
                 .onReceive(timer) { _ in
 //                    NSLog("on timer receivw")
                     frameIndex += 1
