@@ -20,6 +20,7 @@ class GameModel: ObservableObject {
     static let cols = 3
     
     @Published var cards = [Card]()
+    @Published var flips = 0
 //    var cards: [Card] = []
     var openCardIndex: Int?
     
@@ -54,10 +55,12 @@ class GameModel: ObservableObject {
                 cards[oci].state = .closed
                 cards[index].state = .open
                 openCardIndex = index
+                flips += 1
             }
         } else {
             cards[index].state = .open
             openCardIndex = index
+            flips += 1
         }
     }
 }
