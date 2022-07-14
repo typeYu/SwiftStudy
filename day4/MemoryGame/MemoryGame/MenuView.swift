@@ -14,9 +14,7 @@ struct MenuView: View {
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     ForEach(prefixes, id:\.self) { prefix in
-                        NavigationLink(destination: GameView(prefix: prefix)) {
-                            MenuItemView(prefix: prefix)
-                        }
+                        MenuItemView(prefix: prefix)
                     }
                 }
             }
@@ -43,10 +41,22 @@ struct MenuView_Previews: PreviewProvider {
 struct MenuItemView: View {
     let prefix: String
     var body: some View {
-        Text("Game with prefix \(prefix)")
-            .background(
-                Image("\(prefix)_back")
-            )
-            .frame(width:.infinity, height: 200)
+        HStack {
+            Image("\(prefix)_back")
+                .resizable()
+                .frame(
+                    width: UIScreen.main.bounds.width * 0.4,
+                    height: UIScreen.main.bounds.width * 0.4)
+            Spacer()
+            NavigationLink(destination: GameView(prefix: prefix)) {
+                Text("Play Game")
+                    .padding()
+                    .background(
+                        Capsule()
+                            .stroke(lineWidth: 4)
+                    )
+            }
+            Spacer()
+        }
     }
 }
