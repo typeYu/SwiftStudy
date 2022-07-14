@@ -10,7 +10,7 @@ import SwiftUI
 struct CardView: View {
     var prefix: String
     var card: Card
-    var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    var timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     @State var frameIndex = 1
     var body: some View {
         if card.state == .removed {
@@ -43,11 +43,10 @@ struct CardView: View {
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ForEach(1..<5) { num in
+            ForEach(1..<6) { num in
                 HStack {
                     CardView(prefix: "z", card: Card(state: .open, number: num))
-                    CardView(prefix: "f", card: Card(state: .closed, number: num))
-                    CardView(prefix: "f", card: Card(state: .removed, number: num))
+                    CardView(prefix: "z", card: Card(state: .open, number: num+5))
                 }
             }
         }
