@@ -48,6 +48,38 @@ class PoiData: ObservableObject {
         task.resume()
     }
     func parse(data: Data) -> [PoiItem]? {
-        
+        guard let root = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            return nil
+        }
+        guard let arr = root["PlaceThatDoATasteyFoodSt"] as? [Any] else {
+            return nil
+        }
+        guard let rowobj = arr[1] as? [String: [[String: String]]] else {
+            return nil
+        }
+        guard let items = rowobj["row"] else {
+            return nil
+        }
+        var pois = [PoiItem]()
+        for item in items {
+            guard let poi = PoiItem.from(dictionary: item) else {
+                continue
+            }
+            pois.append(poi)
+        }
+        return pois
+    }
+}
+
+fileprivate extension PoiItem {
+    static func from(dictionary: [String: String]) -> PoiItem? {
+        guard let data = try? JSONSerialization.data(withJSONObject: dictionary) else {
+            return nil
+        }
+        let decoder = JSONDecoder()
+        guard let item = try? decoder.decode(PoiItem.self, from: data) else {
+            return nil
+        }
+        return item
     }
 }
