@@ -16,6 +16,7 @@ struct PoiListView: View {
                     PoiItemView(poi: poi)
                 }
             }
+            .navigationBarTitle(Text("Restaurants"))
         }
         .onAppear {
             poiData.load()

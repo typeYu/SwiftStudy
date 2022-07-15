@@ -28,6 +28,7 @@ class PoiData: ObservableObject {
     }
     func load() {
         let strUrl = "\(Const.baseUrl)?Type=json&Key=\(Const.key)"
+        NSLog("Loading: \(strUrl)")
         guard let url = URL(string: strUrl) else {
             print("Failed to build url with \(strUrl)")
             return
@@ -54,10 +55,10 @@ class PoiData: ObservableObject {
         guard let arr = root["PlaceThatDoATasteyFoodSt"] as? [Any] else {
             return nil
         }
-        guard let rowobj = arr[1] as? [String: [[String: String]]] else {
+        guard let rowobj = arr[1] as? [String: Any] else {
             return nil
         }
-        guard let items = rowobj["row"] else {
+        guard let items = rowobj["row"] as? [Any] else {
             return nil
         }
         var pois = [PoiItem]()
@@ -72,7 +73,7 @@ class PoiData: ObservableObject {
 }
 
 fileprivate extension PoiItem {
-    static func from(dictionary: [String: String]) -> PoiItem? {
+    static func from(dictionary: Any) -> PoiItem? {
         guard let data = try? JSONSerialization.data(withJSONObject: dictionary) else {
             return nil
         }

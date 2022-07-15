@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D60D767288142D70079804F /* PoiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60D766288142D70079804F /* PoiDetailView.swift */; };
 		3D9CE97F28811ACF001DEA96 /* MapSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9CE97E28811ACF001DEA96 /* MapSampleApp.swift */; };
 		3D9CE98128811ACF001DEA96 /* PoiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9CE98028811ACF001DEA96 /* PoiListView.swift */; };
 		3D9CE98328811AD2001DEA96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9CE98228811AD2001DEA96 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D60D766288142D70079804F /* PoiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiDetailView.swift; sourceTree = "<group>"; };
 		3D9CE97B28811ACF001DEA96 /* MapSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9CE97E28811ACF001DEA96 /* MapSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSampleApp.swift; sourceTree = "<group>"; };
 		3D9CE98028811ACF001DEA96 /* PoiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiListView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				3D9CE98228811AD2001DEA96 /* Assets.xcassets */,
 				3D9CE98428811AD2001DEA96 /* Preview Content */,
 				3D9CE98C28812D17001DEA96 /* PoiData.swift */,
+				3D60D766288142D70079804F /* PoiDetailView.swift */,
 			);
 			path = MapSample;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D60D767288142D70079804F /* PoiDetailView.swift in Sources */,
 				3D9CE98D28812D17001DEA96 /* PoiData.swift in Sources */,
 				3D9CE98128811ACF001DEA96 /* PoiListView.swift in Sources */,
 				3D9CE97F28811ACF001DEA96 /* MapSampleApp.swift in Sources */,
