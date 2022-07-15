@@ -28,5 +28,26 @@ class PoiData: ObservableObject {
     }
     func load() {
         let strUrl = "\(Const.baseUrl)?Type=json&Key=\(Const.key)"
+        guard let url = URL(string: strUrl) else {
+            print("Failed to build url with \(strUrl)")
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else {
+                print("No data from dataTask with url: \(strUrl)")
+                return
+            }
+            guard let pois = self.parse(data: data) else {
+                print("Parse failed")
+                return
+            }
+            OperationQueue.main.addOperation {
+                self.rows = pois
+            }
+        }
+        task.resume()
+    }
+    func parse(data: Data) -> [PoiItem]? {
+        
     }
 }
