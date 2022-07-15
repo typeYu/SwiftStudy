@@ -24,6 +24,7 @@ class AlbumStore: ObservableObject {
         guard let url = Bundle.main.url(forResource: "res/albums.json", withExtension: "") else {
             return
         }
+        print("URL: \(url)")
         guard let data = try? Data(contentsOf: url) else {
             return
         }
