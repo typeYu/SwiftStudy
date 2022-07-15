@@ -2,7 +2,7 @@
 //  ImageSwitcherApp.swift
 //  ImageSwitcher
 //
-//  Created by Kiyong Kim on 2022/07/11.
+//  Created by name on 2022/07/11.
 //
 
 import SwiftUI
