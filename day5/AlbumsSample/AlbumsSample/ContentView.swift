@@ -41,9 +41,10 @@ struct ContentView_Previews: PreviewProvider {
 struct AlbumItemView: View {
     static let imageSize = 60
     let album: Album
+    @State var image: Image?
     var body: some View {
         HStack {
-            Image(systemName: "music.note.list")
+            loadAlbumImage()
 //                .font(.largeTitle)
                 .resizable()
                 .frame(width: CGFloat(AlbumItemView.imageSize),
@@ -56,6 +57,14 @@ struct AlbumItemView: View {
                     .font(.footnote)
                     .foregroundColor(.green)
             }
+        }
+    }
+    func loadAlbumImage() -> Image {
+        if image != nil {
+            return image!
+        }
+        return ImageStore.load(strUrl: album.image) { image in
+            self.image = image
         }
     }
 }
