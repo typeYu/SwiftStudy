@@ -2,7 +2,7 @@
 //  GameModel.swift
 //  MemoryGame
 //
-//  Created by Kiyong Kim on 2022/07/14.
+//  Created by name on 2022/07/14.
 //
 
 import Foundation

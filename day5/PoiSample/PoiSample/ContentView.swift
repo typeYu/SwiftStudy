@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  PoiSample
 //
-//  Created by Kiyong Kim on 2022/07/15.
+//  Created by name on 2022/07/15.
 //
 
 import SwiftUI

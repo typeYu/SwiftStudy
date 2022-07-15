@@ -8,8 +8,6 @@
 
 import Foundation
 
-//Nations.contintents[0].countries[0].file
-
 struct Nations {
     static let contintents: [(region:String, countries:[(name:String, file:String)])] = [
         (region:"Africa, Middle East, and India",

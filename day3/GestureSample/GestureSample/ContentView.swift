@@ -1,21 +1,3 @@
-//
-//  ContentView.swift
-//  GestureSample
-//
-//  Created by Kiyong Kim on 2022/07/13.
-//
-
-//Press, Move, Release
-//LongPress
-//Tap(Click) = Touch Up Inside
-//Double Tap, Triple, ...
-//Drag, Pan -> Translation
-//Flick (Fling) - Decelerating
-//Swipe -> Direction
-//Pinch -> Scale
-//Rotation -> Angle
-
-
 import SwiftUI
 
 struct ContentView: View {

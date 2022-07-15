@@ -1,16 +1,6 @@
-//
-//  ContentView.swift
-//  Flags
-//
-//  Created by Kiyong Kim on 2022/07/12.
-//
 
 import SwiftUI
 
-//func lighterColor(color: Color) {
-//    color ......
-//    return color
-//}
 extension UIColor {
 
     func lighter(by percentage: CGFloat = 30.0) -> UIColor? {
@@ -34,6 +24,7 @@ extension UIColor {
     }
 }
 
+
 struct ContentView: View {
     var body: some View {
         NavigationView {
@@ -51,15 +42,14 @@ struct ContentView: View {
                 }
             }
             .listStyle(SidebarListStyle())
-            .navigationBarTitle("All Countries")
+            .navigationBarTitle("Countries")
         }
-//        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            let color = UIColor.blue.lighter(by: 70)
-            let appearance = UINavigationBar.appearance()
-            appearance.barTintColor = color
-//            appearance.backgroundColor = color
-        }
+                    let color = UIColor.orange.lighter(by: 70)
+                    UINavigationBar.appearance().barTintColor = color
+                    UINavigationBar.appearance().backgroundColor = color
+    }
+        
     }
 }
 

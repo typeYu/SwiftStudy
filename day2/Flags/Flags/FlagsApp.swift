@@ -1,14 +1,14 @@
 //
-//  FlagsApp.swift
-//  Flags
+//  flagsApp.swift
+//  flags
 //
-//  Created by Kiyong Kim on 2022/07/12.
+//  Created by name on 2022/07/12.
 //
 
 import SwiftUI
 
 @main
-struct FlagsApp: App {
+struct flagsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
