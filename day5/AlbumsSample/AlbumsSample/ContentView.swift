@@ -13,7 +13,8 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(albumStore.albums, id:\.albumTitle) { album in
-                    NavigationLink(destination: Text("\(album.albumTitle)")) {
+                    NavigationLink(destination: AlbumDetailView(album: album)
+                    ) {
                         AlbumItemView(album: album)
                     }
                 }
